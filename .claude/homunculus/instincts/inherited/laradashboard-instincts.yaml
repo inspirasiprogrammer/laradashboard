@@ -1,0 +1,608 @@
+# Instincts generated from https://github.com/inspirasiprogrammer/laradashboard
+# Generated: 2026-03-27T07:17:31.843Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: laradashboard-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, refactor, chore
+
+## Evidence
+
+- 200 commits analyzed
+- Detected conventional commit pattern
+- Examples: chore: updated lang and build css, fix: fix module loading status
+
+---
+id: laradashboard-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Commit Length
+
+## Action
+
+Keep commit messages concise (~45 characters)
+
+## Evidence
+
+- Average commit message length: 45 chars
+- Based on 200 commits
+
+---
+id: laradashboard-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: laradashboard-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: laradashboard-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: laradashboard-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: laradashboard-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: laradashboard-workflow-database-migration
+trigger: "when modifying the database schema or adding tables"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Workflow Database Migration
+
+## Action
+
+Follow the database-migration workflow:
+1. Create migration file
+2. Update schema definitions
+3. Generate/update types
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: migrations/*
+
+---
+id: laradashboard-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: src/**/*
+
+---
+id: laradashboard-workflow-update-translations-and-rebuild-assets
+trigger: "when doing update translations and rebuild assets"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Workflow Update Translations And Rebuild Assets
+
+## Action
+
+Follow the update-translations-and-rebuild-assets workflow:
+1. Edit or add translation keys in all resources/lang/*.json files.
+2. Rebuild frontend assets, updating public/build/assets/*.css and public/build/manifest.json.
+3. Optionally update README.md and version.json if related to a release.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: resources/lang/ar.json, resources/lang/bn.json, resources/lang/da.json
+
+---
+id: laradashboard-workflow-release-version-bump
+trigger: "when doing release version bump"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Workflow Release Version Bump
+
+## Action
+
+Follow the release-version-bump workflow:
+1. Update README.md with new release notes or changelog.
+2. Update version.json with the new version number.
+3. Update package.json and package-lock.json if npm dependencies or version changed.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: README.md, version.json, package.json
+
+---
+id: laradashboard-workflow-dependency-update-via-dependabot
+trigger: "when doing dependency update via dependabot"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Workflow Dependency Update Via Dependabot
+
+## Action
+
+Follow the dependency-update-via-dependabot workflow:
+1. Update package-lock.json or composer.lock with new dependency version.
+2. Merge the automated pull request.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: package-lock.json, composer.lock
+
+---
+id: laradashboard-workflow-fix-or-update-module-statuses
+trigger: "when doing fix or update module statuses"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Workflow Fix Or Update Module Statuses
+
+## Action
+
+Follow the fix-or-update-module-statuses workflow:
+1. Edit modules_statuses.json to reflect new statuses.
+2. Optionally update translations if related to module status messages.
+3. Optionally rebuild frontend assets.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: modules_statuses.json, resources/lang/*.json, public/build/assets/*.css
+
+---
+id: laradashboard-workflow-feature-development-with-tests-and-views
+trigger: "when doing feature development with tests and views"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Workflow Feature Development With Tests And Views
+
+## Action
+
+Follow the feature-development-with-tests-and-views workflow:
+1. Update or add PHP backend files (Controllers, Services, Models, etc).
+2. Update or add Blade views in resources/views.
+3. Update or add frontend JS/CSS if needed.
+4. Update or add tests in tests/Feature or tests/Unit.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: app/**/*.php, resources/views/**/*.blade.php, resources/js/**/*.js
+
+---
+id: laradashboard-camelcase-filenames
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Camelcase Filenames
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+- Consistent with JavaScript conventions
+
+---
+id: laradashboard-camelcase-functions
+trigger: "When defining a function"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Camelcase Functions
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: laradashboard-pascalcase-classes
+trigger: "When defining a class"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Pascalcase Classes
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: laradashboard-screaming-snake-constants
+trigger: "When defining a constant"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Screaming Snake Constants
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: laradashboard-relative-imports
+trigger: "When importing a module in JavaScript"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Relative Imports
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: laradashboard-named-exports
+trigger: "When exporting from a JavaScript module"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Named Exports
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: laradashboard-test-file-pattern
+trigger: "When adding a new test file"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Test File Pattern
+
+## Action
+
+Name the file with the pattern *.test.ts
+
+## Evidence
+
+- Pattern in testing.filePattern
+
+---
+id: laradashboard-unit-tests
+trigger: "When writing tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Unit Tests
+
+## Action
+
+Write unit tests for individual components or functions
+
+## Evidence
+
+- Pattern in testing.testTypes
+- Seen in tests/Unit/**/*.php
+
+---
+id: laradashboard-git-conventional-commits
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Git Conventional Commits
+
+## Action
+
+Use conventional commit prefixes: fix, feat, refactor, chore
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples: 'fix: fix module loading status', 'feat: ai filter hooks'
+
+---
+id: laradashboard-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Git Commit Length
+
+## Action
+
+Keep the commit message concise, around 45 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: laradashboard-update-translations-assets
+trigger: "When translations are added or updated, or new features require translation keys"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Update Translations Assets
+
+## Action
+
+Edit or add translation keys in all resources/lang/*.json files and rebuild frontend assets (public/build/assets/*.css, public/build/manifest.json)
+
+## Evidence
+
+- Workflow: update-translations-and-rebuild-assets
+- Seen in commits like 'chore: updated lang and build css'
+
+---
+id: laradashboard-release-version-bump
+trigger: "When a new release is ready to be published"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Release Version Bump
+
+## Action
+
+Update README.md, version.json, package.json, and package-lock.json with new release notes and version
+
+## Evidence
+
+- Workflow: release-version-bump
+- Seen in commits like 'release: released version changelogs v0.9.13'
+
+---
+id: laradashboard-dependency-update
+trigger: "When Dependabot detects an outdated dependency"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Dependency Update
+
+## Action
+
+Update package-lock.json or composer.lock and merge the automated pull request
+
+## Evidence
+
+- Workflow: dependency-update-via-dependabot
+- Seen in commits like 'Merge pull request #225 from laradashboard/dependabot/npm_and_yarn/flatted-3.4.2'
+
+---
+id: laradashboard-update-module-status
+trigger: "When a module's status needs to be changed or a bug is found in module loading"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Update Module Status
+
+## Action
+
+Edit modules_statuses.json and optionally update translations and rebuild frontend assets
+
+## Evidence
+
+- Workflow: fix-or-update-module-statuses
+- Seen in commits like 'fix: fix module loading status'
+
+---
+id: laradashboard-feature-dev-tests-views
+trigger: "When developing a new feature, refactoring, or fixing a bug that affects multiple layers"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: inspirasiprogrammer/laradashboard
+---
+
+# Laradashboard Feature Dev Tests Views
+
+## Action
+
+Update or add backend PHP files, Blade views, frontend JS/CSS, and tests in tests/Feature or tests/Unit
+
+## Evidence
+
+- Workflow: feature-development-with-tests-and-views
+- Seen in commits like 'feat: ai filter hooks' and related file changes
+
